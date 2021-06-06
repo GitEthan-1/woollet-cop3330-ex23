@@ -1,0 +1,34 @@
+@startuml
+if (Is the car silent when you turn the key?) then (yes)
+    if (Are the battery terminals corroded?) then (yes)
+        :Clean terminals and try starting again.;
+        stop
+    else (no)
+        :Replace cables and try again.;
+        stop
+    endif
+else (no)
+    if (Does the car make a slicking noise?) then (yes)
+        :Replace the battery.;
+        stop
+    else (no)
+        if (Does the car crank up but fail to start?) then (yes)
+            :Check spark plug connections.;
+            stop
+        else (no)
+            if (Does the engine start and then die?) then (yes)
+                if (Does you car have fuel injection?) then (yes)
+                    :Get it in for service.;
+                    stop
+                else (no)
+                    :Check to ensure the choke is opening and closing.;
+                    stop
+                endif
+            else (no)
+                :This should not be possible.;
+                stop
+            endif
+        endif
+    endif
+endif
+@enduml
